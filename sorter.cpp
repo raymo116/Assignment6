@@ -6,7 +6,6 @@ using namespace std;
 // QUICK SORT
 // =============================================================================
 // =============================================================================
-
 // A function fo switch numbers
 void sorter::swap(int &a, int &b)
 {
@@ -15,20 +14,28 @@ void sorter::swap(int &a, int &b)
     b = t;
 }
 
+// A function fo switch numbers
+void sorter::swap(double &a, double &b)
+{
+    double t = a;
+    a = b;
+    b = t;
+}
+
 // This function operates on a partition
-int sorter::partition (int myArray[], int front, int back)
+int sorter::partition(double myArray[], int front, int back)
 {
     // This sets the value of the pivot
-    int pivot = myArray[back];
+    double pivot = myArray[back];
 
     // index of a smaller elements
-    int smaller = (front - 1);
+    int smaller = (front-1);
 
     // Iterates through all numbers ≤ the last in the partition
-    for (int iterator = front; iterator <= back- 1; ++iterator)
+    for(int iterator = front; iterator <= back-1; ++iterator)
     {
         // If current element is ≤ pivot
-        if (myArray[iterator] <= pivot)
+        if(myArray[iterator] <= pivot)
         {
             // Swaps the next number after smaller and the number at the iterator
             swap(myArray[++smaller], myArray[iterator]);
@@ -42,10 +49,10 @@ int sorter::partition (int myArray[], int front, int back)
 }
 
 // Main function for quicksort
-void sorter::quickSort(int myArray[], int front, int back)
+void sorter::quickSort(double myArray[], int front, int back)
 {
     // Base case is that front == back, at which it returns nothing
-    if (front < back)
+    if(front < back)
     {
         // Sorts one object into the correct location and then saves that index as the old partition
         int lastPartition = partition(myArray, front, back);
@@ -58,9 +65,9 @@ void sorter::quickSort(int myArray[], int front, int back)
 }
 
 // Calls the function
-void sorter::quickSort(int myArray[], int size)
+void sorter::quickSort(double myArray[], int size)
 {
-    cout << "InsertionSort" << endl;
+    cout << "QuickSort" << endl;
 
     // Implementation
     // ----------------------------------------
@@ -80,14 +87,14 @@ void sorter::quickSort(int myArray[], int size)
 // =============================================================================
 // =============================================================================
 
-void sorter::insertionSort(int myArray[], int size)
+void sorter::insertionSort(double myArray[], int size)
 {
     cout << "InsertionSort" << endl;
 
     // Implementation
     // ----------------------------------------
 
-    for (int outerLoop = 0; outerLoop < size; ++outerLoop)
+    for(int outerLoop = 0; outerLoop < size; ++outerLoop)
     {
         // Creates a temp variable that holds the number being analyzed
         int currentNumber = myArray[outerLoop];
@@ -116,25 +123,17 @@ void sorter::insertionSort(int myArray[], int size)
 // =============================================================================
 // =============================================================================
 
-void sorter::bubbleSort(int myArray[], int size)
+void sorter::bubbleSort(double myArray[], int size)
 {
     cout << "BubbleSort" << endl;
 
     // Implementation
     // ----------------------------------------
 
-    for (int outerLoop = 0; outerLoop < size; ++outerLoop)
-    {
-        for (int innerLoop = 0; innerLoop < size; ++innerLoop)
-        {
-            if(myArray[innerLoop] > myArray[innerLoop+1])
-            {
-                int temp = myArray[innerLoop];
-                myArray[innerLoop] = myArray[innerLoop+1];
-                myArray[innerLoop+1] = temp;
-            }
-        }
-    }
+    for (int outerLoop = 0; outerLoop < size-1; ++outerLoop)
+        for (int innerLoop = 0; innerLoop < size-1; ++innerLoop)
+            if(myArray[innerLoop] > myArray[outerLoop+1])
+                swap(myArray[innerLoop], myArray[outerLoop+1]);
 
     // ----------------------------------------
 
@@ -148,7 +147,7 @@ void sorter::bubbleSort(int myArray[], int size)
 // =============================================================================
 // =============================================================================
 
-void sorter::cycleSort(int myArray[], int size)
+void sorter::cycleSort(double myArray[], int size)
 {
     cout << "CycleSort" << endl;
 
@@ -157,10 +156,10 @@ void sorter::cycleSort(int myArray[], int size)
 
     // Iterate through all of the elements of the array
     // The last one can be ignored because it will be put in place as a consequence of the rest
-    for (int iterator = 0; iterator < size-1; iterator++)
+    for(int iterator = 0; iterator < size-1; iterator++)
     {
         // Temporary item to hold the value of the item that we're checking
-        int tempItem = myArray[iterator];
+        double tempItem = myArray[iterator];
 
         // The position that we're evaluating
         int evalPosition = iterator;
@@ -173,7 +172,7 @@ void sorter::cycleSort(int myArray[], int size)
                 evalPosition++;
 
         // Continues if the item is already there
-        if (evalPosition == iterator)
+        if(evalPosition == iterator)
             continue;
 
         // Skips duplicate items
@@ -215,6 +214,15 @@ void sorter::cycleSort(int myArray[], int size)
 // =============================================================================
 
 void sorter::printArray(int myArray[], int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        cout << myArray[i] << (i<(size-1)?", ":"");
+    }
+    cout << endl << endl;
+}
+
+void sorter::printArray(double myArray[], int size)
 {
     for (int i = 0; i < size; ++i)
     {
