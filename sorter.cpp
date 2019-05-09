@@ -6,13 +6,6 @@ using namespace std;
 // QUICK SORT
 // =============================================================================
 // =============================================================================
-// A function fo switch numbers
-void sorter::swap(int &a, int &b)
-{
-    int t = a;
-    a = b;
-    b = t;
-}
 
 // A function fo switch numbers
 void sorter::swap(double &a, double &b)
@@ -75,7 +68,7 @@ void sorter::quickSort(double myArray[], int size)
 
     // ----------------------------------------
 
-    printArray(myArray, size);
+    // printArray(myArray, size);
 }
 
 // =============================================================================
@@ -109,7 +102,7 @@ void sorter::insertionSort(double myArray[], int size)
 
     // ----------------------------------------
 
-    printArray(myArray, size);
+    // printArray(myArray, size);
 }
 
 // =============================================================================
@@ -131,7 +124,7 @@ void sorter::bubbleSort(double myArray[], int size)
 
     // ----------------------------------------
 
-    printArray(myArray, size);
+    // printArray(myArray, size);
 }
 
 // =============================================================================
@@ -200,19 +193,10 @@ void sorter::cycleSort(double myArray[], int size)
 
     // ----------------------------------------
 
-    printArray(myArray, size);
+    // printArray(myArray, size);
 }
 
 // =============================================================================
-
-void sorter::printArray(int myArray[], int size)
-{
-    for (int i = 0; i < size; ++i)
-    {
-        cout << myArray[i] << (i<(size-1)?", ":"");
-    }
-    cout << endl << endl;
-}
 
 void sorter::printArray(double myArray[], int size)
 {
