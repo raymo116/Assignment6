@@ -67,8 +67,6 @@ void sorter::quickSort(double myArray[], int front, int back)
 // Calls the function
 void sorter::quickSort(double myArray[], int size)
 {
-    cout << "QuickSort" << endl;
-
     // Implementation
     // ----------------------------------------
 
@@ -89,8 +87,6 @@ void sorter::quickSort(double myArray[], int size)
 
 void sorter::insertionSort(double myArray[], int size)
 {
-    cout << "InsertionSort" << endl;
-
     // Implementation
     // ----------------------------------------
 
@@ -125,8 +121,6 @@ void sorter::insertionSort(double myArray[], int size)
 
 void sorter::bubbleSort(double myArray[], int size)
 {
-    cout << "BubbleSort" << endl;
-
     // Implementation
     // ----------------------------------------
 
@@ -149,8 +143,6 @@ void sorter::bubbleSort(double myArray[], int size)
 
 void sorter::cycleSort(double myArray[], int size)
 {
-    cout << "CycleSort" << endl;
-
     // Implementation
     // ----------------------------------------
 
@@ -228,5 +220,5 @@ void sorter::printArray(double myArray[], int size)
     {
         cout << myArray[i] << (i<(size-1)?", ":"");
     }
-    cout << endl << endl;
+    cout << endl;
 }
