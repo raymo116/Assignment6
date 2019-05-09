@@ -6,14 +6,13 @@
 
 using namespace std;
 
-double* readFromFile(string myString);
+double* readFromFile(string myString, int &arrayLength);
 void printTime(string myString);
 
 int main(int argc, char const *argv[])
 {
-    // double mainArray[] = {5, 4, 3, 2, 1};
-    double *mainArray = readFromFile("test.txt");
-    const int arrayLength = 5;
+    int arrayLength = 0;
+    double *mainArray = readFromFile("test.txt", arrayLength);
 
     double *myArray1 = new double[arrayLength];
     double *myArray2 = new double[arrayLength];
@@ -59,7 +58,7 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-double* readFromFile(string myString)
+double* readFromFile(string myString, int &arrayLength)
 {
     ifstream myStream;
     myStream.open(myString);
@@ -71,10 +70,10 @@ double* readFromFile(string myString)
 
     try
     {
-        int fileLength = stoi(tempString);
-        myArray = new double[fileLength];
+        arrayLength = stoi(tempString);
+        myArray = new double[arrayLength];
 
-        for (int i = 0; i < fileLength; i++)
+        for (int i = 0; i < arrayLength; i++)
         {
             getline(myStream, tempString);
             myArray[i] = stod(tempString);
