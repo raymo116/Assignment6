@@ -11,8 +11,16 @@ void printTime(string myString);
 
 int main(int argc, char const *argv[])
 {
+    string filepath = "";
     int arrayLength = 0;
-    double *mainArray = readFromFile("test.txt", arrayLength);
+    double *mainArray;
+
+    cout << "Please enter a filepath:" << endl;
+    getline(cin, filepath);
+
+    mainArray = readFromFile(filepath, arrayLength);
+    for (int i = 0; i < 30; i++)
+        cout << '\n';
 
     double *myArray1 = new double[arrayLength];
     double *myArray2 = new double[arrayLength];
@@ -81,7 +89,7 @@ double* readFromFile(string myString, int &arrayLength)
     }
     catch(exception)
     {
-        cout << "There was an error" << endl;
+        cout << "I'm sorry Dave, but I can't do that." << endl;
         exit(0);
     }
 
