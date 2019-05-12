@@ -7,6 +7,11 @@ Matt Raymond
 
 raymo116@mail.chapman.edu
 
+## Instructions
+- Enter `make` to compile the code.
+- Enter `./mRaymond.out <yourFileName.txt>` in order to run the program.
+- The program will output the time for the beginning and the end of each sorting algorithm.
+
 ## Sources
 [Sleep Sort](https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/)
 
