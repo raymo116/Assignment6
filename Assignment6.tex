@@ -1,0 +1,105 @@
+
+\documentclass[journal]{IEEEtran}
+
+\ifCLASSINFOpdf
+\else
+\fi
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{hyperref}
+
+
+
+
+\begin{document}
+
+\title{Assignment 6: Sorting}
+\author{Matt Raymond
+\thanks{}% <-this % stops a space
+\thanks{}% <-this % stops a space
+\thanks{}}
+
+\markboth{17 May~2019}%
+{Shell \MakeLowercase{\textit{}}: Assignment 6: Sorting}
+
+\maketitle
+
+\begin{abstract}
+The point of this paper is to implement algorithms for multiple sorting algorithms and compare asymptotic analysis of these algorithms against the empirical analysis.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+\IEEEPARstart{T}{here} are many different algorithms for sorting inputs. All of them have their own strengths and weaknesses, as well as special use cases where they would be more or less efficient. In this paper, we will explore four sorting algorithms (Bubble Sort, Quick Sort, Insertion Sort, and Cycle Sort) in both asymptotic notation and empirical analysis and compare the results.
+
+\section{Time Differences}
+Based on asymptotic analysis, we assumed that our runtimes would be as follows:
+\begin{itemize}
+    \item Bubble Sort: $O(n^2)$
+    \item Cycle Sort: $O(n^2)$
+    \item Quick Sort: \textit{Worst case is }$O(n^2)$\textit{, best case is }$O(nlogn)$
+    \item Insertion Sort: \textit{Worst case is }$O(n^2)$\textit{, best case is }$O(n)$
+\end{itemize}\\ \par
+We expected the performance of Bubble and Cycle Sort, and Quick and Insertion Sort to be the same because they were the same based on asymptotic analysis. However, despite the fact that some of our asymptotic growth rates are equal, the performance of our algorithms still differ in real-world:
+\begin{itemize}
+    \item Bubble Sort: \textit{31 seconds}
+    \item Cycle Sort: \textit{46 seconds}
+    \item Quick Sort: $<$\textit{1 second}
+    \item Insertion Sort: \textit{6 seconds}
+\end{itemize}\\ \par
+This is probably due to the relative complexities of each algorithm. For example, Cycle Sort has many more instructions per iteration than Bubble Sort, so even though the time complexity is $O(n^2)$ for each, every cycle took more time for Cycle Sort, resulting in a longer runtime. I believe that this was the same thing that caused the difference between Insertion Sort and Insertion Sort.\par
+\\Overall, I was surprised by the difference in runtime between $O(n^2)$ and $O(nlogn)$, and it was much more drastic than I would have thought.
+\\
+\\
+\\
+\\
+\\
+\\
+
+\section{Tradeoffs of Each Algorithm}
+Each algorithm has its own pros and cons, which are illustrated in \textit{Table I}:
+\begin{table}[h!]
+  \begin{center}
+    \caption{Algorithms Tradeoffs.}
+    \label{tab:table1}
+    \begin{tabular}{l|l|l} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{Algorithm} & \textbf{Pros} & \textbf{Cons} \\
+      \hline
+      Bubble & Simple & Inefficient\\
+      Cycle & Fewest possible array writes & Inefficient\\
+      Quick & Fast for random data & Complex\\
+      Insertion & Fast for pre-sorted data & Complex\\
+    \end{tabular}
+  \end{center}
+\end{table} % table of algorithm information
+
+\section{Impact of Programming Language}
+These programs were implemented using \texttt{C++}, which allowed us to write more specific and technical code than other programming languages such as \texttt{Python}. For example, \texttt{Python} makes it a lot more difficult to use pointers, which you can't use directly. This means that we were better able to optimize our code and decrease the runtime. Additionally, since \texttt{C++} is a compiled language instead of an interpreted language, our program ran much faster than it would in \texttt{Python}. However, if we had used \texttt{Assembly}, our code might have been even faster (since we could perform only the necessary commands), but it also would have been much more difficult to write. Overall, writing our code in \texttt{C++} allowed us to write our code quickly while still being able to optimize it.
+
+\section{Shortcomings of Empirical Analysis}
+Empirical Analysis has many shortcomings: it's not cost effective, it needs to be implemented, it's dependant on many variables (including the platform/hardware and compilers/linkers). However, there are also some plus sides. For example, it shows us that two algorithms with identical Big O's can have very different run times in the real world due to the spread of data that we're working with. Quick Sort proved to be much faster than Insertion Sort because our data was completely randomized. This was the optimal setup for Quick Sort, and we were able to see this reflected in the runtime ($<$\textit{1 second}).
+
+
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+    
+
+\begin{thebibliography}{1}
+\bibitem{IEEEhowto:kopka}
+    \url{https://www.geeksforgeeks.org/cycle-sort/} \par
+\bibitem{IEEEhowto:kopka}
+    \url{https://www.geeksforgeeks.org/bubble-sort/} \par
+\bibitem{IEEEhowto:kopka}
+    \url{https://www.geeksforgeeks.org/quick-sort/} \par
+\bibitem{IEEEhowto:kopka}
+    \url{https://www.geeksforgeeks.org/insertion-sort/} \par
+
+\end{thebibliography}
+
+\end{document}
+
+
