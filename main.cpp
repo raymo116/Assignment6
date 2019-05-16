@@ -12,11 +12,17 @@ void printTime(string myString);
 int main(int argc, char const *argv[])
 {
     string filepath = "";
+    try
+    {
+        filepath = argv[1];
+    }
+    catch(exception)
+    {
+        cout << "That was an invalid commandline argument." << endl;
+        exit(0);
+    }
     int arrayLength = 0;
     double *mainArray;
-
-    cout << "Please enter a filepath:" << endl;
-    getline(cin, filepath);
 
     mainArray = readFromFile(filepath, arrayLength);
     for (int i = 0; i < 30; i++)
