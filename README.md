@@ -18,3 +18,5 @@ raymo116@mail.chapman.edu
 [Insertion Sort](https://www.youtube.com/watch?v=w3Z7DwDHoZQ)
 
 [QuickSort](https://www.geeksforgeeks.org/quick-sort/)
+
+[Cyclesort](https://www.geeksforgeeks.org/cycle-sort/)
